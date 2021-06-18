@@ -1,4 +1,20 @@
-require('./bootstrap');
+import Vue from 'vue';
+import Vuetify from 'vuetify';
+
 
 require('alpinejs');
 
+
+require('./bootstrap');
+
+window.Vue = require('vue');
+
+import VueRouter from 'vue-router';
+import routes from './routes';
+
+Vue.use(VueRouter);
+
+const app = new Vue({
+    el: '#app',
+    router: new VueRouter(routes)
+});
