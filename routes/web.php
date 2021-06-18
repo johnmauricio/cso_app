@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+// test
 Route::get('/', function () {
     return view('welcome');
 });
@@ -27,3 +27,11 @@ require __DIR__.'/auth.php';
 
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create')->middleware('permission:write post');
 Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit')->middleware('role:editor|admin');
+
+Route::get('/roles/index', [RoleController::class, 'index'])->name('roles.index');
+
+Route::get('/clear-cache-all', function() {
+    Artisan::call('cache:clear');
+  
+    dd("Cache Clear All");
+});
